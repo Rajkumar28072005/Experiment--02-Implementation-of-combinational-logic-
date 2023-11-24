@@ -52,14 +52,11 @@ endmodule
 
 ![Screenshot 2023-11-20 153654](https://github.com/2005Mukesh/Experiment--02-Implementation-of-combinational-logic-/assets/138849308/b1272672-7ecc-49cd-8b69-b364cbded089)
 
-
-### TIMING DIAGRAM:
-![image](https://github.com/2005Mukesh/Experiment--02-Implementation-of-combinational-logic-/assets/138849308/9cc1bbff-7c60-4bb9-a1e3-fe6024870489)
-
-
 ### TRUTH TABLE:
 ![image](https://github.com/2005Mukesh/Experiment--02-Implementation-of-combinational-logic-/assets/138849308/a4c0061d-e8e2-476e-b5ca-54c67bf5b1f7)
 
+### TIMING DIAGRAM:
+![image](https://github.com/2005Mukesh/Experiment--02-Implementation-of-combinational-logic-/assets/138849308/9cc1bbff-7c60-4bb9-a1e3-fe6024870489)
 
 ### Result:
 Thus the given logic functions are implemented using  and their operations are verified using Verilog programming.
