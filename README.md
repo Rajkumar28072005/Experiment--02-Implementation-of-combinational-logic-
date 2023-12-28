@@ -1,85 +1,60 @@
-# Experiment--04-Implementation-of-combinational-logic-using-universal-gates
-Implementation of combinational logic using universal-gates
- 
-## AIM:
-To implement the given logic function using NAND and NOR gates and to verify its operation in Quartus using Verilog programming.
+#### NAME:RAJKUMAR G
+#### REGISTER NUMBER:23003498
+#### Experiment 02  Implementation-of-combinational-logic
+### AIM:
+To implement the given logic function verify its operation in Quartus using Verilog programming.
+ F1= A’B’C’D’+AC’D’+B’CD’+A’BCD+BC’D
+### EQUIPMENT REQUIRED:
+ Hardware PC Cyclone II, USB flasher Software - Quartus prime 
+### Theory:
+ A combinational circuit is a circuit in which the output depends on the present combination of inputs. Combinational circuits are made up of logic gates. The output of each logic gate is determined by its logic function. Combinational circuits can be made using various logic gates, such as AND gates, OR gates, and NOT gates.
+### Procedure:
+1. Create a New Project:
+   - Open Quartus and create a new project by selecting "File" > "New Project Wizard."
+   - Follow the wizard's instructions to set up your project, including specifying the project name, location, and target device (FPGA).
+2. Create a New Design File:
+   - Once the project is created, right-click on the project name in the Project Navigator and select "Add New File."
+   - Choose "Verilog HDL File" or "VHDL File," depending on your chosen hardware description language.
 
-F=((C'.B.A)'(D'.C.A)'(C.B'.A)')' using NAND gate
-F=(((C.B'.A)+(D.C'.A)+(C.B'.A))')' using NOR gate
-## Equipments Required:
-## Hardware – PCs, Cyclone II , USB flasher
-## Software – Quartus prime
+3. Write the Combinational Logic Code:
+   - Open the newly created Verilog or VHDL file and write the code for your combinational logic.
+     
+4. Compile the Project:
+   - To compile the project, click on "Processing" > "Start Compilation" in the menu.
+   - Quartus will analyze your code, synthesize it into a netlist, and perform optimizations based on your target FPGA device.
 
+5. Analyze and Fix Errors:*
+   - If there are any errors or warnings during the compilation process, Quartus will display them in the Messages window.
+   - Review and fix any issues in your code if necessary.
+   - View the RTL diagram.
 
-## Theory
-Logic gates are electronic circuits which perform logical functions on one or more inputs to produce one output. 
-
-## Using NAND gates
-NAND gate is actually a combination of two logic gates i.e. AND gate followed by NOT gate. So its output is complement of the output of an AND gate.This gate can have minimum two inputs, output is always one. By using only NAND gates, we can realize all logic functions: AND, OR, NOT, X-OR, X-NOR, NOR. So this gate is also called as universal gate. First note that the entire expression is inverted and we have three terms ANDed. This means that we must use a 3-input NAND gate. Each of the three terms is, itself, a NAND expression. Finally, negated single terms can be generates with a 2-input NAND gate acting as an inverted.
-
-F=((C'.B.A)'(D'.C.A)'(C.B'.A)')'
-
-## Logic Diagram
-
-Using NOR gates
-NOR gate is actually a combination of two logic gates: OR gate followed by NOT gate. So its output is complement of the output of an OR gate. This gate can have minimum two inputs, output is always one. By using only NOR gates, we can realize all logic functions: AND, OR, NOT, Ex-OR, Ex-NOR, NAND. So this gate is also called universal gate. Designing a circuit with NOR gates only uses the same basic techniques as designing a circuit with NAND gates; that is, the application of deMorgan’s theorem. The only difference between NOR gate design and NAND gate design is that the former must eliminate product terms and the later must eliminate sum terms.
-
-F=(((C.B'.A)+(D.C'.A)+(C.B'.A))')'
-
-
-## Procedure:
-1. Create a project with required entities.
-2. Create a module along with respective file name.
-3. Run the respective programs for the given boolean equations.
-4. Run the module and get the respective RTL outputs.
-5. Create university program(VWF) for getting timing diagram.
-6. Give the respective inputs for timing diagram and obtain the results.
-## Program:
+6.Verification:
+   - Click on "File" > "New" > "Verification/Debugging Files" > "University Program VWF".
+   - Once Waveform is created Right Click on the Input/Output Panel > " Insert Node or Bus" > Click on Node Finder > Click On "List" > Select All.
+   - Give the Input Combinations according to the Truth Table amd then simulate the Output waveform
+### Program:
 ```
-Program to implement the given logic function using NAND and NOR gates and to verify its operations in quartus using Verilog programming.
-Developed by: Deepika.J
-RegisterNumber:  212221230016
-using NAND:
-   module combo1(a,b,c,d,f);
-   input a,b,c,d;
-   output f;
-   wire p,q,r;
-   assign p=(~c & b & a);
-   assign q=(~d & c & ~a);
-   assign r=(c & ~b & a);
-   assign f=(~(~p & ~q & ~r));
-   endmodule
-
-using NOR:
-   module combo2(a,b,c,d,f);
-   input a,b,c,d;
-   output f;
-   wire p,q,r;
-   assign p=( c & ~b & a);
-   assign q=( d & ~c & a);
-   assign r=( c & ~b & a);
-   assign f=(~(~( p | q | r)));
-   endmodule
+module ex_02(a,b,c,d,f1);
+input a,b,c,d;
+output f1;
+wire x1,x2,x3,x4,x5;
+assign x1=(~a)&(~b)&(~c)&(~d);
+assign x2=(a) &(~c)&(~d);
+assign x3=(~b)& (c) &(~d);
+assign x4=(~a)& (b) & (c) & (d);
+assign x5=(b) & (~c)&(d);
+assign f1=x1|x2|x3|x4|x5;
+endmodule
 ```
-## RTL realization
+### RTL REALIZATION:
 
-## Output:
-## USING NAND GATE:
-### RTL:
-![image](https://user-images.githubusercontent.com/94677128/201460322-692c68d2-681b-487e-be7c-ac2105fbd332.png)
+![Screenshot 2023-11-20 153654](https://github.com/2005Mukesh/Experiment--02-Implementation-of-combinational-logic-/assets/138849308/b1272672-7ecc-49cd-8b69-b364cbded089)
 
-### Timing Diagram
-![image](https://user-images.githubusercontent.com/94677128/201460402-e5047c6e-4258-4f2a-aa4b-5d242c6f5c36.png)
-### Truth Table:
-![image](https://user-images.githubusercontent.com/94677128/201460420-d6924089-ca18-4d3a-9826-b0e95a83fb02.png)
-## USING NOR:
-### RTL:
-![image](https://user-images.githubusercontent.com/94677128/201460493-d4833395-21b4-4cf0-bfad-36caf8fcdec5.png)
+### TRUTH TABLE:
+![image](https://github.com/2005Mukesh/Experiment--02-Implementation-of-combinational-logic-/assets/138849308/a4c0061d-e8e2-476e-b5ca-54c67bf5b1f7)
 
-### Timing Diagram:
-![image](https://user-images.githubusercontent.com/94677128/201460525-5e88a9c8-17e4-4a4a-91eb-2d0d7fd94481.png)
-### Truth Table:
-![image](https://user-images.githubusercontent.com/94677128/201460564-3c3616c7-0e11-4d84-b3e5-a2aaac17ae14.png)
+### TIMING DIAGRAM:
+![image](https://github.com/2005Mukesh/Experiment--02-Implementation-of-combinational-logic-/assets/138849308/9cc1bbff-7c60-4bb9-a1e3-fe6024870489)
 
-## Result:
-Thus the given logic functions are implemented using NAND and NOR gates and their operations are verified using Verilog programming.
+### Result:
+Thus the given logic functions are implemented using  and their operations are verified using Verilog programming.
